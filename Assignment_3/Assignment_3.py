@@ -129,11 +129,11 @@ def main():
         plt.show()
     
     '''Question 2'''
-    character = cv.imread('Files\characters.tif',0)
+    character = cv.imread('./Files/characters.tif',0)
     D0=100
     ilpf_img = ILPF(character, D0)
-    glpf_img = GLPF(character, D0)
-     
+    glpf_img = GLPF(character, D0) 
+    
     plt.figure(figsize=(6,5))
 
     plt.subplot(1,1,1)
@@ -152,9 +152,9 @@ def main():
     plt.show()
      
     '''Question 3'''
-    blr_low = cv.imread('Files\Blurred_LowNoise.png',0)
-    blr_high = cv.imread('Files\Blurred_HighNoise.png',0)
-    data = loadmat('Files\BlurKernel.mat')
+    blr_low = cv.imread('./Files/Blurred_LowNoise.png',0)
+    blr_high = cv.imread('./Files/Blurred_HighNoise.png',0)
+    data = loadmat('./Files/BlurKernel.mat')
     kernel = data['h']
     
     #Low Blur image

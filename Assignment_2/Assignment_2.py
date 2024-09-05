@@ -139,7 +139,6 @@ def rotate_image(image, degree, method):
         return nearest_neighbor(image,x_rot,y_rot)
     else:
         return bilinear(image,x_rot,y_rot)
-  
 
 
 ###### Q4 ######## 
@@ -203,7 +202,7 @@ def main():
     plt.hist(h,256,[0,255])
     plt.title('histogram of gamma corrected image ')
     plt.show()
-     
+    
     plt.figure(figsize=(13,5))
     plt.subplot(1, 3, 1)
     plt.imshow(hazy,cmap='gray',vmin=0, vmax=255)
@@ -220,7 +219,7 @@ def main():
     plt.imshow(best_g_img,cmap='gray',vmin=0, vmax=255)
     plt.axis('off')
     plt.show()
-     
+
     #Question 3
     box = cv.imread('Images/box.png',0) 
     degree = [-5,30]

@@ -51,7 +51,7 @@ def within_class_variance(image,t):
     c1 = freq[t+1:]
     w1 = p[t+1:].sum()
     if(np.isclose(w1,0.0)):
-         return float('inf')
+        return float('inf')
         
     m1 = means(t+1,256,p,w1)
     v1 = variances(t+1,256,p,w1,m1)
@@ -79,7 +79,7 @@ def between_class_variance(image,t):
     c1 = freq[t+1:]
     w1 = p[t+1:].sum()
     if(np.isclose(w1,0.0)):
-         return 0.0
+        return 0.0
         
     m1 = means(t+1,256,p,w1)
     v1 = variances(t+1,256,p,w1,m1)
@@ -224,7 +224,6 @@ def MSER(image):
                     s=bfs(r,c,0)
                     if s>10000: 
                         count +=1
-                         
         Char_count.append(count)
     return Char_count
 
@@ -232,7 +231,7 @@ def main():
     
     #question1
     print("  Q1, Histogram Computation")
-    imgC = cv.imread('Images\coins.png',0)
+    imgC = cv.imread('./Images/coins.png',0)
     plt.imshow(imgC,'gray')
     plt.show()
     H = Histogram(imgC)
@@ -250,14 +249,14 @@ def main():
     
     #question3
     print("  Q3, Depth based extraction")
-    text = cv.imread('Images\IIScText.png')
-    depth = cv.imread('Images\IIScTextDepth.png')
-    background = cv.imread('Images\IIScMainBuilding.png')
+    text = cv.imread('./Images/IIScText.png')
+    depth = cv.imread('./Images/IIScTextDepth.png')
+    background = cv.imread('./Images/IIScMainBuilding.png')
     img_s=Image_superimpose(text, depth, background)
     
     #question4
     print("  Q4, Connected Components")
-    imgQ = cv.imread('Images\quote.png',0)
+    imgQ = cv.imread('./Images/quote.png',0)
     
     count=count_character(imgQ)
     plt.imshow(imgQ,'gray')
@@ -266,7 +265,7 @@ def main():
     
     #question5
     print("  Q5, MSER")
-    img_char = cv.imread('Images\Characters.png',0)
+    img_char = cv.imread('./Images/Characters.png',0)
     
     char_count=MSER(img_char)
     plt.imshow(img_char,'gray')

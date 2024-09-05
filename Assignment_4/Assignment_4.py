@@ -33,7 +33,7 @@ def bilateral_filter(image, d, sigmaColor, sigmaSpace):
 
             # Compute Gaussian spatial weights
             G = np.array([[gaussian(distance(i_min + x, j_min + y, i + pad_width, j + pad_width), sigmaSpace) 
-                           for y in range(d)] for x in range(d)])
+                        for y in range(d)] for x in range(d)])
 
             # Compute the range weights
             F = gaussian(W_p - image[i, j], sigmaColor)
@@ -81,8 +81,8 @@ def laplacian(image):
     """ Function to apply Laplacian filter. """
     # Define the Laplacian kernel
     laplacian_kernel = np.array([[0, -1, 0],
-                                 [-1, 4, -1],
-                                 [0, -1, 0]], dtype=np.float64)
+                                [-1, 4, -1],
+                                [0, -1, 0]], dtype=np.float64)
 
     # Pad the image to handle border pixels
     padded_image = np.pad(image, ((1, 1), (1, 1)), mode='reflect')
@@ -268,7 +268,7 @@ def main():
     # Load the noisy image
     print("Question number 1")
     
-    image_path = 'Images/building_noisy.png'
+    image_path = './Images/building_noisy.png'
     building_noisy_img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
 
     # Apply bilateral and Gaussian filters
@@ -304,7 +304,7 @@ def main():
     threshold2 = 0.3
 
     # Apply edge detection to each image
-    for image_name in ['Images/book_noisy1.png', 'Images/book_noisy2.png', 'Images/architecture_noisy1.png', 'Images/architecture_noisy2.png']:
+    for image_name in ['./Images/book_noisy1.png', './Images/book_noisy2.png', './Images/architecture_noisy1.png', './Images/architecture_noisy2.png']:
         edge_detection(image_name, gaussian_kernel_size, threshold1, threshold2)
         
         
@@ -312,7 +312,7 @@ def main():
     # change gaussion filter size 
     gaussian_kernel_size = 7
     # Apply edge detection to each image
-    for image_name in ['Images/book_noisy1.png', 'Images/book_noisy2.png', 'Images/architecture_noisy1.png', 'Images/architecture_noisy2.png']:
+    for image_name in ['./Images/book_noisy1.png', './Images/book_noisy2.png', './Images/architecture_noisy1.png', './Images/architecture_noisy2.png']:
         edge_detection(image_name, gaussian_kernel_size,  threshold1, threshold2)
 
         
@@ -342,7 +342,7 @@ def main():
     plt.show()
 
     # Display the results with different thresholds
-    image = 'Images/building_noisy.png'
+    image = './Images/building_noisy.png'
     real_img = cv2.imread(image, cv2.IMREAD_GRAYSCALE)
     real_image= cv2.GaussianBlur(real_img, (5,5), 2)
     plot_image_with_line(si, thresholds, bins)
